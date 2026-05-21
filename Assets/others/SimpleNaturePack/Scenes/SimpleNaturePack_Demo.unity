@@ -2172,6 +2172,7 @@ GameObject:
   - component: {fileID: 187931831}
   - component: {fileID: 187931833}
   - component: {fileID: 187931832}
+  - component: {fileID: 187931834}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -2246,6 +2247,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
+--- !u!114 &187931834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187931830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8026cd1a6384fb45b3ca849d0ae0ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <characterReader>k__BackingField:
+    <Move>k__BackingField: {x: 0, y: 0}
+    <Look>k__BackingField: {x: 0, y: 0}
 --- !u!1001 &196120746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6909,6 +6925,7 @@ GameObject:
   - component: {fileID: 994930905}
   - component: {fileID: 994930910}
   - component: {fileID: 994930911}
+  - component: {fileID: 994930912}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -7009,6 +7026,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Move>k__BackingField: {x: 0, y: 0}
   <Look>k__BackingField: {x: 0, y: 0}
+--- !u!114 &994930912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 994930904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e72fecc8cb5c3b1469ec05e41a955416, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionRader: {fileID: 994930911}
+  _fristPerson: {fileID: 994930910}
 --- !u!1001 &1056159471
 PrefabInstance:
   m_ObjectHideFlags: 0
