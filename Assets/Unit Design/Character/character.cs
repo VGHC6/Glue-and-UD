@@ -13,12 +13,18 @@ namespace UD
        private void Awake()
         {
             characterReader = new characterReader();//创建动作读取器
+            CharacterMovement=new CharacterMovement(this.transform);//创建动作
             characterReader.OnAwake();//动作读取器初始化
         }
 
         private void OnEnable()
         {
             characterReader.OnEnable();//动作读取器启用
+        }
+
+        private void Update()
+        {
+            CharacterMovement.BodyRotate(characterReader.Look);//动作
         }
 
         private void OnDisable()

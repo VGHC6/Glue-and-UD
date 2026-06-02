@@ -1887,7 +1887,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &172001877
 Transform:
   m_ObjectHideFlags: 0
@@ -7038,6 +7038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72fecc8cb5c3b1469ec05e41a955416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _fristPersonalData: {fileID: 11400000, guid: eeede3ab2e716544eb96c98e57b7b2df, type: 2}
   _actionRader: {fileID: 994930911}
   _fristPerson: {fileID: 994930910}
 --- !u!1001 &1056159471
@@ -8675,7 +8676,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1318710626
 Transform:
   m_ObjectHideFlags: 0

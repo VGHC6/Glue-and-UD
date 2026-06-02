@@ -7,9 +7,13 @@ namespace GLUE
 
     public class fristPerson : MonoBehaviour
     {
-
+        FristPersonalData _firstPersonalData;
         float rotation = 0;
-        const float sensitivyty = 0.5f;
+
+        public void LoadData(FristPersonalData data)
+        {
+            _firstPersonalData = data;//º”‘ÿ ˝æ›
+        }
         public void HeadMove()
         {
 
@@ -17,7 +21,7 @@ namespace GLUE
 
         public void BodyMove(Vector2 lookAction)
         {
-            rotation += sensitivyty * lookAction.x;
+            rotation += _firstPersonalData.sensitivyty * lookAction.x;
             transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
 
