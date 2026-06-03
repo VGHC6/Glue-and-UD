@@ -8,5 +8,7 @@ namespace GLUE
     public class FristPersonalData : ScriptableObject
     {
         public float sensitivyty = 0.5f;
+        public float verticalsensitivity = 0.5f;
+        public float rotationSpeed = 0.5f;
     }
 }

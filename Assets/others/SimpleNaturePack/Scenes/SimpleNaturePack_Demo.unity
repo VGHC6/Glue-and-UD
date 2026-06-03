@@ -2259,10 +2259,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8026cd1a6384fb45b3ca849d0ae0ae4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <_characterdata>k__BackingField: {fileID: 0}
+  <_characterdata>k__BackingField: {fileID: 11400000, guid: d2f65551ab3852c4e983131d07d2b335,
+    type: 2}
   <characterReader>k__BackingField:
     <Move>k__BackingField: {x: 0, y: 0}
     <Look>k__BackingField: {x: 0, y: 0}
+  headTransfrom: {fileID: 1845592892}
 --- !u!1001 &196120746
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7085,6 +7087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _headTransform: {fileID: 1773741317}
+  _rigbody: {fileID: 994930909}
   _fristPersonalData: {fileID: 11400000, guid: eeede3ab2e716544eb96c98e57b7b2df, type: 2}
   _actionRader: {fileID: 994930911}
   _fristPerson: {fileID: 994930910}

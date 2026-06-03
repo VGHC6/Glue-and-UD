@@ -6,11 +6,13 @@ namespace UD
 
     public class character : MonoBehaviour
     {
+        //子部件
         [field: SerializeField] public CharacterData _characterdata { get; private set; }
         [field: SerializeField] public CharacterMovement CharacterMovement { get; private set; }
         [field: SerializeField] public characterReader characterReader { get; private set; }
 
-
+        //依赖
+        [SerializeField] public Transform headTransfrom;//头部
        private void Awake()
         {
             characterReader = new characterReader();//创建动作读取器
@@ -26,6 +28,7 @@ namespace UD
         private void Update()
         {
             CharacterMovement.BodyRotate(characterReader.Look);//动作
+            CharacterMovement.HeadMove(characterReader.Look,headTransfrom);//动作
         }
 
         private void OnDisable()

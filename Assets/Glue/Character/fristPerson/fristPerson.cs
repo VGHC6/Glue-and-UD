@@ -17,19 +17,22 @@ namespace GLUE
         }
         public void HeadMove(Vector2 lookAction,Transform HeadTransform)
         {
-            _rotationX-=lookAction.y;
+            _rotationX-=lookAction.y * _firstPersonalData.verticalsensitivity;
             _rotationX=Mathf.Clamp(_rotationX, -90, 90);//限制旋转角度
             HeadTransform.localRotation = Quaternion.Euler(_rotationX, 0, 0);//旋转
         }
 
-        public void BodyMove(Vector2 lookAction)
+        public void BodyRotate(Vector2 lookAction)
         {
             rotation += _firstPersonalData.sensitivyty * lookAction.x;
             transform.rotation = Quaternion.Euler(0, rotation, 0);
         }
 
-        public void BodyRotate()
+        public void BodyMove(Vector2 moveAction,Rigidbody rigidbody)
         {
+            Vector3 moveDirection=transform.right* moveAction.x + transform.forward * moveAction.y;
+            Vector3 targetVelocity= moveDirection.normalized * _firstPersonalData.rotationSpeed;
+            rigidbody.velocity = targetVelocity;
 
         }
     }//end of class
