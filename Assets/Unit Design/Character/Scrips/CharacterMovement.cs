@@ -16,7 +16,7 @@ namespace UD
         }
         public void HeadMove(Vector2 lookAction, Transform headTransform)
         {
-            rotationX -= lookAction.y*_characterMoveData.SENCITIVITY;
+            rotationX -= lookAction.y * _characterMoveData.SENCITIVITY;
             rotationX = Mathf.Clamp(rotationX, -90, 90);//限制旋转角度
             headTransform.localRotation = Quaternion.Euler(rotationX, 0, 0);//设置旋转
         }
@@ -28,9 +28,13 @@ namespace UD
 
         }
 
-        public void BodyMove()
+        public void BodyMove(Vector2 moveAction, Rigidbody rigidbody)
         {
-
+            float yVelocity = rigidbody.velocity.y;//获取y轴速度
+            Vector3 moveDirection = rigidbody.transform.right * moveAction.x + rigidbody.transform.forward * moveAction.y;
+            moveDirection.y = yVelocity;
+            Vector3 normalDirection = moveDirection.normalized * _characterMoveData.SPEED;//设置速度
+            rigidbody.velocity = normalDirection;
         }
     }
 }

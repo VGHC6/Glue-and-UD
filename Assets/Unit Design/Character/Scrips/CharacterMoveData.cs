@@ -7,5 +7,6 @@ namespace UD
     {
         public float SENCITIVITY = 0.05f;
         public float VERTICALSENCITIVITY = 0.5f;
+        public float SPEED = 1f;
     }
 }

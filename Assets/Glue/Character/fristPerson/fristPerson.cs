@@ -30,8 +30,10 @@ namespace GLUE
 
         public void BodyMove(Vector2 moveAction,Rigidbody rigidbody)
         {
+            float  yVelocity = rigidbody.velocity.y;//获取y轴速度
             Vector3 moveDirection=transform.right* moveAction.x + transform.forward * moveAction.y;
             Vector3 targetVelocity= moveDirection.normalized * _firstPersonalData.rotationSpeed;
+            targetVelocity.y = yVelocity;//
             rigidbody.velocity = targetVelocity;
 
         }

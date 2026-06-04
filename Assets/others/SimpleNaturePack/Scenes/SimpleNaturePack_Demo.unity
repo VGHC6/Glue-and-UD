@@ -2265,6 +2265,7 @@ MonoBehaviour:
     <Move>k__BackingField: {x: 0, y: 0}
     <Look>k__BackingField: {x: 0, y: 0}
   headTransfrom: {fileID: 1845592892}
+  rigidbodyMove: {fileID: 187931833}
 --- !u!1001 &196120746
 PrefabInstance:
   m_ObjectHideFlags: 0

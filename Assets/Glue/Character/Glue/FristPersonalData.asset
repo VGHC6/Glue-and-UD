@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: FristPersonalData
   m_EditorClassIdentifier: 
   sensitivyty: 0.5
+  verticalsensitivity: 0.5
+  rotationSpeed: 1

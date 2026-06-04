@@ -12,11 +12,12 @@ namespace UD
         [field: SerializeField] public characterReader characterReader { get; private set; }
 
         //依赖
-        [SerializeField] public Transform headTransfrom;//头部
-       private void Awake()
+        [SerializeField] public Transform headTransfrom;//头部相机
+        [SerializeField] public Rigidbody rigidbodyMove;//身体
+        private void Awake()
         {
             characterReader = new characterReader();//创建动作读取器
-            CharacterMovement=new CharacterMovement(_characterdata._charaterMoveData, this.transform);//创建动作
+            CharacterMovement = new CharacterMovement(_characterdata._charaterMoveData, this.transform);//创建动作
             characterReader.OnAwake();//动作读取器初始化
         }
 
@@ -28,12 +29,17 @@ namespace UD
         private void Update()
         {
             CharacterMovement.BodyRotate(characterReader.Look);//动作
-            CharacterMovement.HeadMove(characterReader.Look,headTransfrom);//动作
+            CharacterMovement.HeadMove(characterReader.Look, headTransfrom);//动作
         }
 
         private void OnDisable()
         {
             characterReader.OnDisable();//动作读取器禁用
+        }
+
+        private void FixedUpdate()
+        {
+            CharacterMovement.BodyMove(characterReader.Move, rigidbodyMove);//动作
         }
 
     }//end of class
