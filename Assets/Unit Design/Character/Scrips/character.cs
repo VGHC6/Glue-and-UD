@@ -11,6 +11,8 @@ namespace UD
         [field: SerializeField] public CharacterMovement CharacterMovement { get; private set; }
         [field: SerializeField] public characterReader characterReader { get; private set; }
 
+        [field:SerializeField] public CharacterHealth CharacterHealth { get; private set; }
+
         //依赖
         [SerializeField] public Transform headTransfrom;//头部相机
         [SerializeField] public Rigidbody rigidbodyMove;//身体
@@ -19,6 +21,7 @@ namespace UD
             characterReader = new characterReader();//创建动作读取器
             CharacterMovement = new CharacterMovement(_characterdata._charaterMoveData, this.transform);//创建动作
             characterReader.OnAwake();//动作读取器初始化
+            CharacterHealth=new CharacterHealth(10,10);
         }
 
         private void OnEnable()
@@ -42,5 +45,16 @@ namespace UD
             CharacterMovement.BodyMove(characterReader.Move, rigidbodyMove);//动作
         }
 
+
+        //UD的角色方法
+        public void ReceiveDamage(float damageAmont)
+        {
+            CharacterHealth.ReceiveDamage(damageAmont);
+        }
+
+        public void Heal(float healAmont)
+        {
+            CharacterHealth.Heal(healAmont);
+        }
     }//end of class
 }//end of UD

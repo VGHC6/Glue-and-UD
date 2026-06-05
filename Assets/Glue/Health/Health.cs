@@ -1,30 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
 
-public class Health : MonoBehaviour
+namespace GLUE
 {
-    [field: SerializeField] public float CurrentHealth { get; private set; }
-    [field: SerializeField] public float MaxHealth { get; private set; }
-
-
-    private void Awake()
+    public class Health : MonoBehaviour
     {
-        CurrentHealth = MaxHealth;
-    }
+        [field: SerializeField] public float CurrentHealth { get; private set; }
+        [field: SerializeField] public float MaxHealth { get; private set; }
 
-    public void ReceiveDamage(float damage)
-    {
+        //公共事件
+        public event Action<float> OnHealthChanged;
+        public event Action OnDead;
+        public event Action<float> OnRevive;
 
-    }
+        private void Awake()
+        {
+            CurrentHealth = MaxHealth;
+        }
 
-    public void Heal(float heal)
-    {
+        public void ReceiveDamage(float damage)
+        {
+            if (damage == 0) return;
+            if (damage > CurrentHealth|| CurrentHealth == 0)
+            {
+                CurrentHealth = 0;
+                OnHealthChanged?.Invoke(-damage);
+                OnDead?.Invoke();
+                Debug.Log("You are dead");
+                return;
+            }
+            CurrentHealth -= damage;
+            OnHealthChanged?.Invoke(-damage);
+        }
 
-    }
+        public void Heal(float heal)
+        {
 
-    public void Revive(float precent)
-    {
-        precent -= 1;
+        }
+
+        public void Revive(float precent=1)
+        {
+            OnRevive?.Invoke(precent);
+        }
     }
 }
