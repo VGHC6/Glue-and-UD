@@ -17,10 +17,10 @@ namespace UD
         public event Action<float> OnRevive;//¸´»îÊÂ¼þ
 
 
-        public CharacterHealth(float currentHealth, float maxHealth)
+        public CharacterHealth(CharacterHealthData characterHealthData)
         {
-            CurrentHealth = currentHealth;
-            MaxHealth = maxHealth;
+            CurrentHealth = characterHealthData.CurrentHealth;
+            MaxHealth = characterHealthData.MaxHealth;
         }
 
         public void ReceiveDamage(float damage)

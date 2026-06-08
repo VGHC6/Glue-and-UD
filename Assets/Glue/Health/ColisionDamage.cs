@@ -4,8 +4,6 @@ using UnityEngine;
 
 namespace GLUE
 {
-
-
     public class ColisionDamage : MonoBehaviour
     {
         [field: SerializeField] float _damage = 5;

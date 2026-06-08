@@ -11,7 +11,7 @@ namespace UD
         {
             if (other.gameObject.TryGetComponent<character>(out character target))
             {
-                OnCharacterEnter?.Invoke(target,this);
+                OnCharacterEnter?.Invoke(target,this);//´¥·¢ÊÂ¼þ
             }
         }
     }

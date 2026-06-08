@@ -8,5 +8,6 @@ namespace UD
     public class CharacterData : ScriptableObject
     {
         public CharacterMoveData _charaterMoveData;
+        public CharacterHealthData _characterHealthData;
     }
 }

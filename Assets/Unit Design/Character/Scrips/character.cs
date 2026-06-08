@@ -3,7 +3,6 @@ using UnityEngine;
 
 namespace UD
 {
-
     public class character : MonoBehaviour
     {
         //子部件
@@ -21,7 +20,7 @@ namespace UD
             characterReader = new characterReader();//创建动作读取器
             CharacterMovement = new CharacterMovement(_characterdata._charaterMoveData, this.transform);//创建动作
             characterReader.OnAwake();//动作读取器初始化
-            CharacterHealth=new CharacterHealth(10,10);
+            CharacterHealth=new CharacterHealth(_characterdata._characterHealthData);
         }
 
         private void OnEnable()

@@ -5,6 +5,7 @@ namespace GLUE
 {
     public class Health : MonoBehaviour
     {
+        [SerializeField] HealthData _healthData;
         [field: SerializeField] public float CurrentHealth { get; private set; }
         [field: SerializeField] public float MaxHealth { get; private set; }
 
@@ -15,13 +16,19 @@ namespace GLUE
 
         private void Awake()
         {
-            CurrentHealth = MaxHealth;
+            LoadData();
+        }
+
+        void LoadData()
+        {
+            CurrentHealth = _healthData.CurrentHealth;
+            MaxHealth = _healthData.MaxHealth;
         }
 
         public void ReceiveDamage(float damage)
         {
             if (damage == 0) return;
-            if (damage > CurrentHealth|| CurrentHealth == 0)
+            if (damage > CurrentHealth || CurrentHealth == 0)
             {
                 CurrentHealth = 0;
                 OnHealthChanged?.Invoke(-damage);
@@ -38,7 +45,7 @@ namespace GLUE
 
         }
 
-        public void Revive(float precent=1)
+        public void Revive(float precent = 1)
         {
             OnRevive?.Invoke(precent);
         }

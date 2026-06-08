@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.TextCore.Text;
 
 namespace UD
 {
@@ -10,7 +9,7 @@ namespace UD
         private void Awake()
         {
             _damageTriggers = FindObjectsOfType<DamageTrigger>();//查找组件
-
+            //给每个组件的OnCharacterEnter事件添加方法
             for (int i = 0; i < _damageTriggers.Length; i++)
             {
                 _damageTriggers[i].OnCharacterEnter += OnTriggerDamageEnter;
