@@ -5,7 +5,10 @@ namespace UD
     public class ScenceController : MonoBehaviour
     {
         [SerializeField] DamageTrigger[] _damageTriggers;
+        [SerializeField] character _character;
+        [SerializeField] HealthView _health;
 
+        [SerializeField] DayOfNight _dayOfNight;
         private void Awake()
         {
             _damageTriggers = FindObjectsOfType<DamageTrigger>();//²éÕÒ×é¼þ
@@ -14,6 +17,14 @@ namespace UD
             {
                 _damageTriggers[i].OnCharacterEnter += OnTriggerDamageEnter;
             }
+            _health.Bind(_character);
+
+            _dayOfNight=new DayOfNight();
+        }
+
+        private void Update()
+        {
+            _dayOfNight.UpDate(Time.deltaTime);
         }
 
         private void OnTriggerDamageEnter(character character, DamageTrigger damageTrigger)
