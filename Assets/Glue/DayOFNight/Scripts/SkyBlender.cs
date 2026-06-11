@@ -13,5 +13,10 @@ namespace GLUE
         {
             _sykBox.SetFloat("_Blend", blend);
         }
+
+        public void SetBlend(float blend)
+        {
+            this.blend = blend;
+        }
     }
 }

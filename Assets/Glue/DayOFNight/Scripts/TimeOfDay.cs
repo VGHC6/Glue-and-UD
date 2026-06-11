@@ -36,15 +36,15 @@ namespace GLUE
             }
             if (oldTime < 12 && newTime >= 12)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnNoon?.Invoke();//激活触发事件
             }
             if (oldTime < 18 && newTime >= 18)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnSunset?.Invoke();//激活触发事件
             }
             if (oldTime < 24 && newTime >= 24)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnMidnight?.Invoke();//激活触发事件
             }
 
             if (Mathf.FloorToInt(oldTime) != Mathf.FloorToInt(newTime))

@@ -1,14 +1,19 @@
+using System;
 using UnityEngine;
 
 namespace UD
 {
+    [Serializable]
     public class ScenceController : MonoBehaviour
     {
         [SerializeField] DamageTrigger[] _damageTriggers;
         [SerializeField] character _character;
         [SerializeField] HealthView _health;
 
-        [SerializeField] DayOfNight _dayOfNight;
+        [SerializeField] TimeOfNight _timeOfNight;
+
+        //ÒÀÀµ
+        [SerializeField] Material _sykBox;
         private void Awake()
         {
             _damageTriggers = FindObjectsOfType<DamageTrigger>();//²éÕÒ×é¼þ
@@ -19,12 +24,12 @@ namespace UD
             }
             _health.Bind(_character);
 
-            _dayOfNight=new DayOfNight();
+            _timeOfNight = new TimeOfNight(_sykBox);
         }
 
         private void Update()
         {
-            _dayOfNight.UpDate(Time.deltaTime);
+            _timeOfNight.UpDate(Time.deltaTime);
         }
 
         private void OnTriggerDamageEnter(character character, DamageTrigger damageTrigger)
