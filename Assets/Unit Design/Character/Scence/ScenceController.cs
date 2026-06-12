@@ -12,24 +12,29 @@ namespace UD
 
         [SerializeField] TimeOfNight _timeOfNight;
 
-        //ÒÀÀµ
+        //ï¿½ï¿½ï¿½ï¿½
         [SerializeField] Material _sykBox;
         private void Awake()
         {
-            _damageTriggers = FindObjectsOfType<DamageTrigger>();//²éÕÒ×é¼þ
-            //¸øÃ¿¸ö×é¼þµÄOnCharacterEnterÊÂ¼þÌí¼Ó·½·¨
+            _damageTriggers = FindObjectsOfType<DamageTrigger>();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+            //ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½OnCharacterEnterï¿½Â¼ï¿½ï¿½ï¿½ï¿½Ó·ï¿½ï¿½ï¿½
             for (int i = 0; i < _damageTriggers.Length; i++)
             {
                 _damageTriggers[i].OnCharacterEnter += OnTriggerDamageEnter;
             }
             _health.Bind(_character);
 
-            _timeOfNight = new TimeOfNight(_sykBox);
+            _timeOfNight = new TimeOfNight(_sykBox, this);
         }
 
         private void Update()
         {
             _timeOfNight.UpDate(Time.deltaTime);
+        }
+
+        private void OnDestroy()
+        {
+            _timeOfNight.OnDestroy();
         }
 
         private void OnTriggerDamageEnter(character character, DamageTrigger damageTrigger)

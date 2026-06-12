@@ -8,10 +8,10 @@ namespace UD
         [Range(0, 24)]
         [SerializeField] float _time;
 
-        public event Action OnSunrise;
-        public event Action OnNoon;
-        public event Action OnSunset;
-        public event Action OnMidnight;
+        public static event Action OnSunrise;
+        public static event Action OnNoon;
+        public static event Action OnSunset;
+        public static event Action OnMidnight;
 
         public event Action<int> ChangeHourTime;
         public void UpDate(float deltaTime)
@@ -31,15 +31,15 @@ namespace UD
             }
             if (oldTime < 12 && newTime >= 12)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnNoon?.Invoke();//激活触发事件
             }
             if (oldTime < 18 && newTime >= 18)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnSunset?.Invoke();//激活触发事件
             }
             if (oldTime < 24 && newTime >= 24)
             {
-                OnSunrise?.Invoke();//激活触发事件
+                OnMidnight?.Invoke();//激活触发事件
             }
 
 
