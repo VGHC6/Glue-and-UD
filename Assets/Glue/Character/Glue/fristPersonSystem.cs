@@ -14,6 +14,13 @@ namespace GLUE
         {
             _fristPerson.LoadData(_fristPersonalData);
         }
+
+        public void init(ActionRader actionRader)
+        {
+            this._actionRader = actionRader;
+        }
+
+
         private void Update()
         {
             Vector3 lookAction = _actionRader.Look;
