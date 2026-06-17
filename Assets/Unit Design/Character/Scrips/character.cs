@@ -22,11 +22,12 @@ namespace UD
             characterReader.OnAwake();//动作读取器初始化
             CharacterHealth=new CharacterHealth(_characterdata._characterHealthData);
         }
-
-        private void OnEnable()
+        public void Init(characterReader characterReader)
         {
-            characterReader.OnEnable();//动作读取器启用
+            this.characterReader = characterReader;
         }
+
+       
 
         private void Update()
         {
@@ -34,10 +35,7 @@ namespace UD
             CharacterMovement.HeadMove(characterReader.Look, headTransfrom);//动作
         }
 
-        private void OnDisable()
-        {
-            characterReader.OnDisable();//动作读取器禁用
-        }
+
 
         private void FixedUpdate()
         {

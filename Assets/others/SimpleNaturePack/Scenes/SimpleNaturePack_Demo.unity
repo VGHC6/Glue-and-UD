@@ -1935,7 +1935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &172001877
 Transform:
   m_ObjectHideFlags: 0
@@ -9084,7 +9084,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1318710626
 Transform:
   m_ObjectHideFlags: 0
@@ -12429,6 +12429,9 @@ MonoBehaviour:
   _damageTriggers: []
   _character: {fileID: 187931834}
   _health: {fileID: 1855806353}
+  _characterReader:
+    <Move>k__BackingField: {x: 0, y: 0}
+    <Look>k__BackingField: {x: 0, y: 0}
   _timeOfNight:
     _dayOfNight:
       _time: 0
@@ -12436,6 +12439,7 @@ MonoBehaviour:
       _sykBox: {fileID: 0}
       blend: 0
   _sykBox: {fileID: 2100000, guid: 3a536bfb9f3fac64cb7f12280dac0630, type: 2}
+  _scenceState: 0
 --- !u!1001 &1817643097
 PrefabInstance:
   m_ObjectHideFlags: 0
