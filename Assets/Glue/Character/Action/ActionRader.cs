@@ -6,13 +6,14 @@ namespace GLUE
     public class ActionRader : MonoBehaviour
     {
         [SerializeField] GameControl _gameControl;
-        [field: SerializeField] public Vector2 Move { get; private set; } //ÒÆ¶¯
-        [field: SerializeField] public Vector2 Look { get; private set; } //Ðý×ª
+        [field: SerializeField] public Vector2 Move { get; private set; } //ï¿½Æ¶ï¿½
+        [field: SerializeField] public Vector2 Look { get; private set; } //ï¿½ï¿½×ª
 
         public event Action OnPausePression;
         private void Awake()
         {
             _gameControl = new GameControl();
+            InputSystem.EnableDevice(Mouse.current);
         }
 
         private void OnEnable()
@@ -33,6 +34,20 @@ namespace GLUE
             _gameControl.Player.Move.canceled -= OnMoveCancel;
             _gameControl.Player.Look.canceled -= OnLookCancel;
             _gameControl.UI.Cancel.performed -= OnPause;
+        }
+
+        public void OnDisablePlayerInput()
+        {
+            _gameControl.Player.Disable();
+            Cursor.lockState= CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        public void OnEnablePlayerInput()
+        {
+            _gameControl.Player.Enable();
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         void OnMove(InputAction.CallbackContext context) => Move = context.ReadValue<Vector2>();

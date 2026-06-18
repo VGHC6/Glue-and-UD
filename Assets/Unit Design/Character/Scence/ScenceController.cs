@@ -12,12 +12,16 @@ namespace UD
         [SerializeField] character _character;
         [SerializeField] HealthView _health;
         [SerializeField] characterReader _characterReader;
-
         [SerializeField] TimeOfNight _timeOfNight;
-
         [SerializeField] Material _sykBox;
 
+        [Header("必须填写")]
+        [SerializeField] PauseMuneController _pauseMuneControllerfabs;
+        [SerializeField] Transform _pauseMuneTransfrom;
+
+        [Header("运行时参数")]
         [SerializeField] ScenceState _scenceState;
+        [SerializeField] PauseMuneController _pauseMune;
 
         private void Awake()
         {
@@ -37,6 +41,8 @@ namespace UD
         private void Start()
         {
             _characterReader.OnPausePression += TrigglePause;
+            _characterReader.OnEnablePlayerInput();
+
         }
 
         private void Update()
@@ -72,15 +78,20 @@ namespace UD
                 Pause();
             }
         }
-        public void Resume()
-        {
-            _scenceState = ScenceState.Play;
-            Time.timeScale = 0;
-        }
         public void Pause()
         {
             _scenceState = ScenceState.Pause;
+            Time.timeScale = 0;
+            _characterReader.OnDisablePlayerInput();
+            if (_pauseMune == null) _pauseMune = Instantiate(_pauseMuneControllerfabs, _pauseMuneTransfrom);
+            _pauseMune.Show();
+        }
+        public void Resume()
+        {
+            _scenceState = ScenceState.Play;
             Time.timeScale = 1;
+            _characterReader.OnEnablePlayerInput();
+            _pauseMune.Hide();
         }
 
         private void OnTriggerDamageEnter(character character, DamageTrigger damageTrigger)
