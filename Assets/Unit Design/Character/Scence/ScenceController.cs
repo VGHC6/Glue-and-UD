@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 
@@ -78,13 +79,18 @@ namespace UD
                 Pause();
             }
         }
-        public void Pause()
+        async Task Pause()
         {
             _scenceState = ScenceState.Pause;
             Time.timeScale = 0;
             _characterReader.OnDisablePlayerInput();
             if (_pauseMune == null) _pauseMune = Instantiate(_pauseMuneControllerfabs, _pauseMuneTransfrom);
-            _pauseMune.Show();
+            PauseMuneController.PauseMenu result = await _pauseMune.Show();
+            if(result == PauseMuneController.PauseMenu.resume)
+            {
+                _pauseMune.Hide();
+                Resume();
+            }
         }
         public void Resume()
         {
