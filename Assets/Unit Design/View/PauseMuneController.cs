@@ -9,6 +9,11 @@ namespace UD
     {
         [SerializeField] PauseMune _pauseMune;
 
+        [Header("依赖项")]
+        [SerializeField] SettingMune _settingfabs;
+        [Header("运行时变量")]
+        [SerializeField] SettingMune _settingMune;
+
        public TaskCompletionSource<PauseMenu> _pauseMenuTask;
         public enum PauseMenu
         {

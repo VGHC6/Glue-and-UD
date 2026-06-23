@@ -79,6 +79,7 @@ namespace UD
                 Pause();
             }
         }
+
         async Task Pause()
         {
             _scenceState = ScenceState.Pause;

@@ -1,3 +1,4 @@
+using UD;
 using UnityEngine;
 namespace GLUE
 {
@@ -5,7 +6,7 @@ namespace GLUE
     public class PauseMenu : MonoBehaviour
     {
         [SerializeField] PauseMenuView _pauseMenuView;
-
+        [SerializeField] SettingMune _settingMune;
 
         private void Awake()
         {
@@ -24,6 +25,7 @@ namespace GLUE
 
         public void Hide()
         {
+            _settingMune.Hide();
             _pauseMenuView.Hide();
         }
 
@@ -35,6 +37,7 @@ namespace GLUE
         void Setting()
         {
             Debug.Log("Setting");
+            _settingMune.Show();
         }
 
         void MainMune()
