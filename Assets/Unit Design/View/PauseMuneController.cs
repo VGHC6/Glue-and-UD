@@ -1,3 +1,4 @@
+using GLUE;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ namespace UD
         [Header("运行时变量")]
         [SerializeField] SettingMune _settingMune;
 
-       public TaskCompletionSource<PauseMenu> _pauseMenuTask;
+        public TaskCompletionSource<PauseMenu> _pauseMenuTask;
         public enum PauseMenu
         {
             resume,
@@ -52,7 +53,10 @@ namespace UD
 
         void Setting()
         {
-            Debug.Log("Setting");
+            _pauseMenuTask.SetResult(PauseMenu.setting);
+            if (_settingMune == null)
+                _settingMune = Instantiate(_settingfabs, transform);
+            _settingMune.Show();
         }
 
         void MainMune()

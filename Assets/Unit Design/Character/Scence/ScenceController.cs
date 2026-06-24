@@ -19,8 +19,6 @@ namespace UD
         [Header("必须填写")]
         [SerializeField] PauseMuneController _pauseMuneControllerfabs;
         [SerializeField] Transform _pauseMuneTransfrom;
-
-        [Header("运行时参数")]
         [SerializeField] ScenceState _scenceState;
         [SerializeField] PauseMuneController _pauseMune;
 
@@ -92,6 +90,11 @@ namespace UD
                 _pauseMune.Hide();
                 Resume();
             }
+            if (result == PauseMuneController.PauseMenu.setting)
+            {
+                Debug.Log("setting");
+            }
+
         }
         public void Resume()
         {

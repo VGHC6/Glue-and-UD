@@ -1,13 +1,30 @@
-using GLUE;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 namespace UD
 {
     [RequireComponent(typeof(SettingMuneView))]
     public class SettingMune : MonoBehaviour
     {
         [SerializeField] SettingMuneView _settingMuneView;
+
+        public event Action OnSave;//定义事件
+        public void Awake()
+        {
+            _settingMuneView.OnSaveClick += OnSaveClick;//注册事件
+        }
+        public void Show()
+        {
+            _settingMuneView.Show();
+        }
+
+        public void Hide()
+        {
+            _settingMuneView.Hide();
+        }
+
+        void OnSaveClick()
+        {
+            Hide();
+        }
     }
 }

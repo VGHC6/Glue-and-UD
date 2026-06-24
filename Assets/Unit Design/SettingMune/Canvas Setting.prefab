@@ -87,6 +87,8 @@ GameObject:
   - component: {fileID: 7955243039228762674}
   - component: {fileID: 6508277537563322439}
   - component: {fileID: 9060057701970394997}
+  - component: {fileID: 2375359129333845752}
+  - component: {fileID: 8198147417150432570}
   m_Layer: 5
   m_Name: Canvas Setting
   m_TagString: Untagged
@@ -177,3 +179,29 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2375359129333845752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534246551401789993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88bab511b57d642429fdc75680761faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settingMuneView: {fileID: 8198147417150432570}
+--- !u!114 &8198147417150432570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534246551401789993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92152ce699eb724439c6f4388406506e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: 52688877637332865}

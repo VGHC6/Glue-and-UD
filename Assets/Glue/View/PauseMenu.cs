@@ -32,6 +32,7 @@ namespace GLUE
         void Resume()
         {
             Debug.Log("Resume");
+            _pauseMenuView.Hide();
         }
 
         void Setting()

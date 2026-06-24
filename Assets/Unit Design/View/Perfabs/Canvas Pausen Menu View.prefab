@@ -51,6 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pauseMune: {fileID: 5323684924981902449}
+  _settingfabs: {fileID: 2375359129333845752, guid: b039ff7fcc452ed4db3229b9ce82b1f3,
+    type: 3}
+  _settingMune: {fileID: 0}
 --- !u!114 &5323684924981902449
 MonoBehaviour:
   m_ObjectHideFlags: 0
