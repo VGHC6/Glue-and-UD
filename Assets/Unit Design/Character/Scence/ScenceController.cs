@@ -83,9 +83,16 @@ namespace UD
             _scenceState = ScenceState.Pause;
             Time.timeScale = 0;
             _characterReader.OnDisablePlayerInput();
-            if (_pauseMune == null) _pauseMune = Instantiate(_pauseMuneControllerfabs, _pauseMuneTransfrom);
-            PauseMuneController.PauseMenu result = await _pauseMune.Show();
-            if(result == PauseMuneController.PauseMenu.resume)
+
+           await HanldeResorece(); 
+        }
+
+        async Task HanldeResorece()
+        {
+            if (_pauseMune == null) _pauseMune = Instantiate(_pauseMuneControllerfabs, _pauseMuneTransfrom);//控制权逐层返回
+
+            PauseMuneController.PauseMenu result = await _pauseMune.Show();//异步
+            if (result == PauseMuneController.PauseMenu.resume)
             {
                 _pauseMune.Hide();
                 Resume();
@@ -93,9 +100,11 @@ namespace UD
             if (result == PauseMuneController.PauseMenu.setting)
             {
                 Debug.Log("setting");
+                await HanldeResorece();//递归调用
             }
-
         }
+
+
         public void Resume()
         {
             _scenceState = ScenceState.Play;

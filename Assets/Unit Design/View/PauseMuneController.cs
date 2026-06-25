@@ -10,9 +10,7 @@ namespace UD
     {
         [SerializeField] PauseMune _pauseMune;
 
-        [Header("依赖项")]
         [SerializeField] SettingMune _settingfabs;
-        [Header("运行时变量")]
         [SerializeField] SettingMune _settingMune;
 
         public TaskCompletionSource<PauseMenu> _pauseMenuTask;
@@ -35,28 +33,29 @@ namespace UD
         public Task<PauseMenu> Show()
         {
             _pauseMune.Show();
-
             _pauseMenuTask = new TaskCompletionSource<PauseMenu>();
             return _pauseMenuTask.Task;
         }
 
         public void Hide()
         {
+            _settingMune?.Hide();
             _pauseMune.Hide();
         }
 
-        //事件
+        //锟铰硷拷
         void Resume()
         {
             _pauseMenuTask.SetResult(PauseMenu.resume);
         }
 
-        void Setting()
+        async void Setting()
         {
-            _pauseMenuTask.SetResult(PauseMenu.setting);
             if (_settingMune == null)
                 _settingMune = Instantiate(_settingfabs, transform);
-            _settingMune.Show();
+            SettingMune.SettingMuneViewData result = await _settingMune.Show();
+            _pauseMenuTask.SetResult(PauseMenu.setting);
+            _settingMune.Hide();
         }
 
         void MainMune()
